@@ -2,6 +2,12 @@ require 'spec_helper'
 
 RSpec.describe ArrayUtils do
   describe '.flatten' do
+    context 'when a valid basic array is provided' do
+      it 'returns the same array' do
+        expect(ArrayUtils.flatten([1, 2, 3, 4])).to eq [1, 2, 3, 4]
+      end
+    end
+
     context 'when a valid nested array is provided' do
       it 'flattens the nested values into one single array' do
         expect(ArrayUtils.flatten([[1, 2, [3], 4]])).to eq [1, 2, 3, 4]
@@ -21,7 +27,8 @@ RSpec.describe ArrayUtils do
     end
 
     context 'when nil is provided' do
-      it 'returns an empty array' do
+      # Should we really be able to flatten nil?
+      it 'raises an argument error' do
         expect { ArrayUtils.flatten(nil) }.to raise_error(ArgumentError)
       end
     end
