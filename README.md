@@ -12,3 +12,9 @@ Write a function that will flatten an array of arbitrarily nested arrays of inte
 * Clone the repo, cd into the repo and run ```gem install bundler```
 
 ### Running the tests
+
+To run both quality checks and test run `bundle exec rake`
+
+Alternatively run quality and tests individually but running the following respectfully
+* `bundle exec rake rspec`
+* `bundle exec rake rubocop`
