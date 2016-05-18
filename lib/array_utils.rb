@@ -3,11 +3,7 @@ class ArrayUtils
     raise ArgumentError if array.nil?
     arr = []
     array.each do |element|
-      if element.kind_of?(Array)
-        arr += self.flatten(element)
-      else
-        arr << element
-      end
+      element.is_a?(Array) ? arr += flatten(element) : arr << element
     end
     arr
   end
